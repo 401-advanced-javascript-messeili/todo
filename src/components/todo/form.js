@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function TodoForm(props) {
   const [item, setItem] = useState({});
