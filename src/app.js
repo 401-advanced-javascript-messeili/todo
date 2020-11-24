@@ -1,13 +1,14 @@
 import React from 'react';
 
 import ToDo from './components/todo/todo-connected.js';
+import SettingsProvider from './context/settings';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <>
+export default function App() {
+  return (
+    <>
+      <SettingsProvider>
         <ToDo />
-      </>
-    );
-  }
+      </SettingsProvider>
+    </>
+  );
 }
