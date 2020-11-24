@@ -1,11 +1,16 @@
 import React from 'react';
 
 const TodoList = (props) => {
+  const { list, handleComplete, handleDelete } = props;
   return (
     <ul>
-      {props.list.map((item) => (
+      {list.map((item) => (
         <li className={`complete-${item.complete.toString()}`} key={item._id}>
-          <span onClick={() => props.handleComplete(item._id)}>{item.text}</span>
+          <span onClick={() => handleComplete(item._id)}>
+            name: {item.assignee} <br />
+            task: {item.text}
+          </span>
+          <button onClick={() => handleDelete(item._id)}>x</button>
         </li>
       ))}
     </ul>
