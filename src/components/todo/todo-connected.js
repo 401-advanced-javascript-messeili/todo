@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import Login from '../auth/login';
 import useAjax from '../hooks/useAjax';
 import { SettingsContext } from '../../context/settings';
 
@@ -42,13 +43,17 @@ const ToDo = () => {
     _getTodoItems();
   };
 
-  useEffect(getTodoItems, []);
+  useEffect(() => {
+    getTodoItems();
+  }, []);
 
   return (
     <>
       <header>
         <h2>There are {list.filter((item) => !item.complete).length} Items To Complete</h2>
       </header>
+
+      <Login />
 
       <section className='todo'>
         <div>
