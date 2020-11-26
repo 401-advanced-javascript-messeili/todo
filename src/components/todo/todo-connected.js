@@ -2,10 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
 import Login from '../auth/login';
+import Signup from '../auth/signup';
 import useAjax from '../hooks/useAjax';
 import { SettingsContext } from '../../context/settings';
 
 import './todo.scss';
+import { sign } from 'jsonwebtoken';
 
 const todoAPI = 'https://api-js401.herokuapp.com/api/v1/todo';
 
@@ -52,7 +54,7 @@ const ToDo = () => {
       <header>
         <h2>There are {list.filter((item) => !item.complete).length} Items To Complete</h2>
       </header>
-
+      <Signup />
       <Login />
 
       <section className='todo'>

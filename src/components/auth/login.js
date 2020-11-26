@@ -2,6 +2,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { LoginContext } from '../../context/context';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import './forms.scss';
 
 const If = (props) => {
   return props.condition ? props.children : null;
@@ -29,8 +30,8 @@ function Login() {
 
   return (
     <>
-      <h2>signIn</h2>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} id='form-login'>
+        <h3>Login</h3>
         <Form.Group controlId='formBasicEmail'>
           <Form.Label>Email address</Form.Label>
           <Form.Control type='text' placeholder='Enter email' name='username' onChange={handleChange} />

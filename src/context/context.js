@@ -22,6 +22,15 @@ function LoginProvider(props) {
     }
   };
 
+  const signup = async (username, password, role, email) => {
+    try {
+      let res = await superagent.post(`${API}/signup`).send({ username, password, role, email });
+      await validateToken(res.body.token);
+    } catch (e) {
+      console.error(e.message);
+    }
+  };
+
   const validateToken = (token) => {
     try {
       let user = jwt.verify(token, secret);
@@ -47,6 +56,7 @@ function LoginProvider(props) {
     loggedIn,
     login,
     logout,
+    signup,
     user,
   };
 
